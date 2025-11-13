@@ -304,6 +304,16 @@
             border-top: 3px solid #667eea;
         }
 
+        .footer ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer li {
+            margin: 5px 0;
+        }
+
         @media print {
             body {
                 background: white;
@@ -353,38 +363,27 @@
                 <h2>📋 Executive Summary</h2>
                 <div class="card">
                     <h3>Product Overview</h3>
-                    <p>Quiz Application is a web-based platform that enables administrators to create and manage quiz questions while allowing students to take randomly generated quizzes. The system features role-based access control with JWT authentication, ensuring secure and personalized experiences for both administrators and students.</p>
-                </div>
-
-                <div class="card">
-                    <h3>Target Audience</h3>
-                    <ul>
-                        <li><strong>Administrators:</strong> Teachers, educators, or quiz managers who create and manage question banks</li>
-                        <li><strong>Students:</strong> Learners who take quizzes to test their knowledge</li>
-                        <li><strong>Educational Institutions:</strong> Schools and training centers implementing online assessments</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h3>Project Goals</h3>
-                    <ul>
-                        <li>Enable administrators to efficiently create and manage quiz questions</li>
-                        <li>Provide students with randomly generated quizzes (10 questions per attempt)</li>
-                        <li>Implement secure authentication using JWT tokens</li>
-                        <li>Track quiz attempts and scores for performance monitoring</li>
-                        <li>Create an intuitive, user-friendly interface for both roles</li>
-                    </ul>
+                    <p>Quiz Application is a web-based platform with role-based access control featuring JWT authentication. Administrators can create and manage quiz questions, while students take randomly generated quizzes (10 questions per attempt) with instant scoring and feedback.</p>
                 </div>
 
                 <div class="card">
                     <h3>Key Features</h3>
                     <ul>
-                        <li>✅ <strong>Role-Based Access:</strong> Admin and Student roles with different permissions</li>
+                        <li>✅ <strong>Role-Based Access:</strong> Admin manages questions, Student takes quizzes</li>
                         <li>✅ <strong>JWT Authentication:</strong> Secure token-based authentication system</li>
-                        <li>✅ <strong>Question Management:</strong> Admin can add, edit, and delete questions</li>
-                        <li>✅ <strong>Random Quiz Generation:</strong> 10 random questions per quiz attempt</li>
+                        <li>✅ <strong>Question Management:</strong> Admin can add, edit, and delete questions (CRUD)</li>
+                        <li>✅ <strong>Random Quiz Generation:</strong> Exactly 10 random questions per quiz attempt</li>
                         <li>✅ <strong>Instant Scoring:</strong> Automatic grading with immediate feedback</li>
-                        <li>✅ <strong>Quiz History:</strong> Track all quiz attempts and scores</li>
+                        <li>✅ <strong>Quiz History:</strong> Complete tracking of all quiz attempts and scores</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Target Audience</h3>
+                    <ul>
+                        <li><strong>Administrators:</strong> Teachers/educators creating and managing question banks</li>
+                        <li><strong>Students:</strong> Learners taking quizzes to test their knowledge</li>
+                        <li><strong>Educational Institutions:</strong> Schools implementing online assessments</li>
                     </ul>
                 </div>
             </section>
@@ -402,39 +401,27 @@
                     <div class="tech-badge">bcrypt</div>
                 </div>
 
-                <h3>Frontend Technologies</h3>
-                <ul>
-                    <li><strong>React.js</strong> - UI component framework with hooks</li>
-                    <li><strong>React Router</strong> - Client-side routing</li>
-                    <li><strong>Axios</strong> - HTTP client for API calls</li>
-                    <li><strong>CSS3/Tailwind CSS</strong> - Styling and responsive design</li>
-                    <li><strong>LocalStorage</strong> - Client-side token storage</li>
-                </ul>
-
-                <h3>Backend Technologies</h3>
-                <ul>
-                    <li><strong>Node.js</strong> - JavaScript runtime environment</li>
-                    <li><strong>Express.js</strong> - Web application framework</li>
-                    <li><strong>mysql2</strong> - MySQL database driver</li>
-                    <li><strong>JWT (jsonwebtoken)</strong> - Authentication token generation</li>
-                    <li><strong>bcrypt</strong> - Password hashing</li>
-                    <li><strong>CORS</strong> - Cross-origin resource sharing</li>
-                    <li><strong>dotenv</strong> - Environment variable management</li>
-                </ul>
-
-                <h3>Database</h3>
-                <ul>
-                    <li><strong>MySQL</strong> - Relational database for storing users, questions, and quiz attempts</li>
-                </ul>
-
-                <h3>Authentication Flow</h3>
                 <div class="card">
+                    <h3>Frontend</h3>
                     <ul>
-                        <li><strong>Registration:</strong> User creates account with role (Admin/Student)</li>
-                        <li><strong>Login:</strong> Server validates credentials and returns JWT token</li>
-                        <li><strong>Token Storage:</strong> Client stores token in localStorage</li>
-                        <li><strong>Protected Routes:</strong> Token sent in Authorization header for protected endpoints</li>
-                        <li><strong>Token Verification:</strong> Middleware validates token on each request</li>
+                        <li><strong>React.js</strong> - Component-based UI framework</li>
+                        <li><strong>React Router</strong> - Client-side routing</li>
+                        <li><strong>Axios</strong> - HTTP requests</li>
+                        <li><strong>Context API</strong> - State management</li>
+                    </ul>
+
+                    <h3>Backend</h3>
+                    <ul>
+                        <li><strong>Node.js + Express.js</strong> - Server framework</li>
+                        <li><strong>mysql2</strong> - Database driver</li>
+                        <li><strong>jsonwebtoken</strong> - JWT generation/verification</li>
+                        <li><strong>bcrypt</strong> - Password hashing</li>
+                        <li><strong>CORS</strong> - Cross-origin handling</li>
+                    </ul>
+
+                    <h3>Database</h3>
+                    <ul>
+                        <li><strong>MySQL</strong> - Relational database</li>
                     </ul>
                 </div>
             </section>
@@ -443,243 +430,58 @@
             <section id="user-roles">
                 <h2>👥 User Roles & Permissions</h2>
 
-                <h3>Role Overview</h3>
                 <div class="features-grid">
                     <div class="feature-box">
                         <h4><span class="role-badge role-admin">ADMIN</span></h4>
                         <p><strong>Primary Function:</strong> Question Management</p>
                         <ul>
-                            <li>Create new quiz questions</li>
-                            <li>Edit existing questions</li>
-                            <li>Delete questions</li>
-                            <li>View all questions in database</li>
-                            <li>View question statistics</li>
+                            <li>✅ Create new quiz questions</li>
+                            <li>✅ Edit existing questions</li>
+                            <li>✅ Delete questions</li>
+                            <li>✅ View all questions</li>
+                            <li>✅ Search & filter questions</li>
                         </ul>
                     </div>
                     <div class="feature-box">
                         <h4><span class="role-badge role-student">STUDENT</span></h4>
                         <p><strong>Primary Function:</strong> Quiz Taking</p>
                         <ul>
-                            <li>Take quizzes (10 random questions)</li>
-                            <li>Submit quiz answers</li>
-                            <li>View immediate results</li>
-                            <li>Track quiz history</li>
-                            <li>View personal statistics</li>
+                            <li>✅ Take quizzes (10 random questions)</li>
+                            <li>✅ Submit quiz answers</li>
+                            <li>✅ View immediate results</li>
+                            <li>✅ Track quiz history</li>
+                            <li>✅ View personal statistics</li>
                         </ul>
                     </div>
                 </div>
 
-                <h3>Admin Role - Detailed Features</h3>
+                <h3>Admin Features Detail</h3>
                 <div class="card">
-                    <h4>Dashboard</h4>
+                    <h4>Question Form Fields</h4>
                     <ul>
-                        <li>Total questions count</li>
-                        <li>Questions by category/difficulty</li>
-                        <li>Recently added questions</li>
-                        <li>Quick access to add new question</li>
-                    </ul>
-
-                    <h4>Question Management</h4>
-                    <ul>
-                        <li><strong>Add Question:</strong>
-                            <ul>
-                                <li>Question text (required)</li>
-                                <li>4 answer options (required)</li>
-                                <li>Correct answer selection (required)</li>
-                                <li>Category/Subject (optional)</li>
-                                <li>Difficulty level (optional)</li>
-                            </ul>
-                        </li>
-                        <li><strong>Edit Question:</strong> Modify existing question details</li>
-                        <li><strong>Delete Question:</strong> Remove question with confirmation</li>
-                        <li><strong>View Questions:</strong> List all questions with search/filter</li>
+                        <li>Question Text* (required)</li>
+                        <li>Option A* (required)</li>
+                        <li>Option B* (required)</li>
+                        <li>Option C* (required)</li>
+                        <li>Option D* (required)</li>
+                        <li>Correct Answer* (A/B/C/D selection)</li>
+                        <li>Category (optional)</li>
+                        <li>Difficulty Level (optional)</li>
                     </ul>
                 </div>
 
-                <h3>Student Role - Detailed Features</h3>
+                <h3>Student Features Detail</h3>
                 <div class="card">
-                    <h4>Dashboard</h4>
-                    <ul>
-                        <li>Welcome message with student name</li>
-                        <li>Statistics: Total quizzes taken, Average score, Best score</li>
-                        <li>"Start New Quiz" button</li>
-                        <li>Recent quiz history</li>
-                    </ul>
-
                     <h4>Quiz Taking Process</h4>
                     <ol>
-                        <li><strong>Start Quiz:</strong> Click "Start Quiz" button</li>
-                        <li><strong>Load Questions:</strong> System randomly selects 10 questions</li>
-                        <li><strong>Answer Questions:</strong> 
-                            <ul>
-                                <li>One question displayed at a time</li>
-                                <li>4 multiple choice options</li>
-                                <li>Select one answer per question</li>
-                                <li>Navigation buttons (Previous/Next)</li>
-                                <li>Question counter (e.g., "Question 3 of 10")</li>
-                            </ul>
-                        </li>
-                        <li><strong>Submit Quiz:</strong> Final confirmation before submission</li>
-                        <li><strong>View Results:</strong>
-                            <ul>
-                                <li>Total score (X/10)</li>
-                                <li>Percentage score</li>
-                                <li>Pass/Fail status (if applicable)</li>
-                                <li>Correct/Incorrect breakdown</li>
-                                <li>Option to review answers</li>
-                            </ul>
-                        </li>
+                        <li>Click "Start Quiz" button on dashboard</li>
+                        <li>System randomly selects 10 unique questions</li>
+                        <li>Answer questions one at a time (4 multiple choice options)</li>
+                        <li>Navigate using Previous/Next buttons</li>
+                        <li>Submit quiz on final question</li>
+                        <li>View instant results with score breakdown</li>
+                        <li>Option to review all answers</li>
                     </ol>
-
-                    <h4>Quiz History</h4>
-                    <ul>
-                        <li>List of all previous attempts</li>
-                        <li>Date and time of each attempt</li>
-                        <li>Score for each attempt</li>
-                        <li>Option to view detailed results</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- Features Section -->
-            <section id="features">
-                <h2>✨ Core Features</h2>
-
-                <h3>1. Authentication System</h3>
-                <div class="card">
-                    <h4>Registration</h4>
-                    <ul>
-                        <li>Full name (required)</li>
-                        <li>Email address (required, unique)</li>
-                        <li>Password (required, min 6 characters)</li>
-                        <li>Confirm password</li>
-                        <li>Role selection (Admin/Student)</li>
-                        <li>Input validation on client and server side</li>
-                    </ul>
-
-                    <h4>Login</h4>
-                    <ul>
-                        <li>Email and password authentication</li>
-                        <li>JWT token generation on successful login</li>
-                        <li>Token stored in localStorage</li>
-                        <li>Automatic redirect based on role</li>
-                        <li>Error messages for invalid credentials</li>
-                    </ul>
-
-                    <h4>Protected Routes</h4>
-                    <ul>
-                        <li>Admin routes accessible only to Admin role</li>
-                        <li>Student routes accessible only to Student role</li>
-                        <li>Automatic logout on token expiration</li>
-                        <li>Redirect to login if not authenticated</li>
-                    </ul>
-                </div>
-
-                <h3>2. Admin Features</h3>
-                <div class="card">
-                    <h4>Question CRUD Operations</h4>
-                    
-                    <strong>Create Question:</strong>
-                    <ul>
-                        <li>Form fields: Question text, Option A, Option B, Option C, Option D, Correct Answer</li>
-                        <li>Validation: All fields required</li>
-                        <li>Success/Error notifications</li>
-                    </ul>
-
-                    <strong>Read Questions:</strong>
-                    <ul>
-                        <li>Table view with columns: ID, Question, Category, Actions</li>
-                        <li>Pagination (10-20 questions per page)</li>
-                        <li>Search functionality</li>
-                        <li>Filter by category</li>
-                    </ul>
-
-                    <strong>Update Question:</strong>
-                    <ul>
-                        <li>Edit button opens pre-filled form</li>
-                        <li>Save changes with confirmation</li>
-                        <li>Cancel option to discard changes</li>
-                    </ul>
-
-                    <strong>Delete Question:</strong>
-                    <ul>
-                        <li>Delete button with confirmation modal</li>
-                        <li>"Are you sure?" message</li>
-                        <li>Permanent deletion from database</li>
-                    </ul>
-                </div>
-
-                <h3>3. Student Features</h3>
-                <div class="card">
-                    <h4>Quiz Generation</h4>
-                    <ul>
-                        <li>Random selection of 10 questions from database</li>
-                        <li>Ensures no duplicate questions in single quiz</li>
-                        <li>Questions shuffled for each attempt</li>
-                        <li>Answer options also shuffled (optional)</li>
-                    </ul>
-
-                    <h4>Quiz Interface</h4>
-                    <ul>
-                        <li>Clean, distraction-free UI</li>
-                        <li>Question number indicator</li>
-                        <li>Single question display</li>
-                        <li>Radio buttons for answer selection</li>
-                        <li>Previous/Next navigation</li>
-                        <li>Submit button on last question</li>
-                        <li>Progress bar (optional)</li>
-                    </ul>
-
-                    <h4>Scoring System</h4>
-                    <ul>
-                        <li>Each correct answer = 1 point</li>
-                        <li>Total score out of 10</li>
-                        <li>Percentage calculation</li>
-                        <li>Pass mark: 60% (configurable)</li>
-                        <li>Immediate feedback after submission</li>
-                    </ul>
-                </div>
-
-                <h3>4. Additional Features</h3>
-                <div class="features-grid">
-                    <div class="feature-box">
-                        <h4>🔒 Security</h4>
-                        <ul>
-                            <li>Password hashing with bcrypt</li>
-                            <li>JWT token expiration (24 hours)</li>
-                            <li>Protected API endpoints</li>
-                            <li>SQL injection prevention</li>
-                            <li>XSS protection</li>
-                        </ul>
-                    </div>
-                    <div class="feature-box">
-                        <h4>📊 Analytics</h4>
-                        <ul>
-                            <li>Student performance tracking</li>
-                            <li>Quiz attempt history</li>
-                            <li>Score trends</li>
-                            <li>Question difficulty analysis</li>
-                        </ul>
-                    </div>
-                    <div class="feature-box">
-                        <h4>🎨 UI/UX</h4>
-                        <ul>
-                            <li>Responsive design</li>
-                            <li>Loading states</li>
-                            <li>Error handling</li>
-                            <li>Success notifications</li>
-                            <li>Intuitive navigation</li>
-                        </ul>
-                    </div>
-                    <div class="feature-box">
-                        <h4>⚡ Performance</h4>
-                        <ul>
-                            <li>Fast API responses</li>
-                            <li>Efficient database queries</li>
-                            <li>Optimized frontend rendering</li>
-                            <li>Lazy loading</li>
-                        </ul>
-                    </div>
                 </div>
             </section>
 
@@ -713,11 +515,6 @@ graph TB
     D --> E
     E --> F
     F -->|mysql2| G
-    G -->|Query Results| F
-    F --> E
-    E --> D
-    D --> B
-    B -->|JSON Response| A
     
     style A fill:#667eea,stroke:#764ba2,stroke-width:3px,color:#fff
     style B fill:#764ba2,stroke:#667eea,stroke-width:3px,color:#fff
@@ -744,14 +541,6 @@ sequenceDiagram
     A-->>F: Return {token, user, role}
     F->>F: Store token in localStorage
     F->>F: Redirect based on role
-    
-    Note over F,A: Protected Route Access
-    F->>A: GET /api/questions<br/>Header: Authorization Bearer token
-    A->>A: Verify JWT token
-    A->>A: Check user role
-    A->>DB: Fetch data
-    DB-->>A: Return data
-    A-->>F: JSON response
                     </pre>
                 </div>
 
@@ -768,89 +557,773 @@ sequenceDiagram
     F->>A: GET /api/quiz/random
     A->>DB: SELECT 10 random questions
     DB-->>A: 10 questions
-    A->>A: Shuffle questions
-    A-->>F: Return questions (without correct answers)
-    F->>F: Display first question
+    A-->>F: Return questions
     
     loop For each question
         S->>F: Select answer
         F->>F: Store answer locally
-        S->>F: Click "Next"
     end
     
     S->>F: Click "Submit Quiz"
-    F->>F: Show confirmation
-    S->>F: Confirm submission
-    F->>A: POST /api/quiz/submit<br/>{questionIds, answers}
+    F->>A: POST /api/quiz/submit
     A->>DB: Fetch correct answers
-    DB-->>A: Correct answers
     A->>A: Calculate score
     A->>DB: INSERT quiz attempt
-    DB-->>A: Success
-    A-->>F: Return {score, total, percentage}
-    F->>F: Display results
+    A-->>F: Return results
+    F->>F: Display score
                     </pre>
                 </div>
+            </section>
 
-                <h3>Component Architecture (Frontend)</h3>
+            <!-- Database Section -->
+            <section id="database">
+                <h2>🗄️ Database Design</h2>
+
+                <h3>Entity Relationship Diagram</h3>
                 <div class="mermaid-container">
                     <pre class="mermaid">
-graph TD
-    A[App.jsx] --> B[Router]
-    B --> C[Public Routes]
-    B --> D[Protected Routes]
+erDiagram
+    USERS ||--o{ QUIZ_ATTEMPTS : takes
+    QUESTIONS ||--o{ QUIZ_ATTEMPT_ANSWERS : contains
+    QUIZ_ATTEMPTS ||--o{ QUIZ_ATTEMPT_ANSWERS : has
     
-    C --> E[Login Page]
-    C --> F[Register Page]
-    C --> G[Landing Page]
+    USERS {
+        int id PK
+        varchar name
+        varchar email UK
+        varchar password
+        enum role
+        timestamp created_at
+    }
     
-    D --> H[Admin Dashboard]
-    D --> I[Student Dashboard]
+    QUESTIONS {
+        int id PK
+        text question_text
+        varchar option_a
+        varchar option_b
+        varchar option_c
+        varchar option_d
+        enum correct_answer
+        varchar category
+        int created_by FK
+        timestamp created_at
+    }
     
-    H --> J[Question List]
-    H --> K[Add Question]
-    H --> L[Edit Question]
+    QUIZ_ATTEMPTS {
+        int id PK
+        int user_id FK
+        int score
+        int total_questions
+        decimal percentage
+        timestamp submitted_at
+    }
     
-    I --> M[Quiz Interface]
-    I --> N[Quiz Results]
-    I --> O[Quiz History]
-    
-    M --> P[Question Card]
-    M --> Q[Navigation]
-    M --> R[Progress Bar]
-    
-    style A fill:#667eea,color:#fff
-    style H fill:#EF4444,color:#fff
-    style I fill:#3B82F6,color:#fff
+    QUIZ_ATTEMPT_ANSWERS {
+        int id PK
+        int attempt_id FK
+        int question_id FK
+        enum user_answer
+        boolean is_correct
+    }
                     </pre>
                 </div>
 
-                <h3>Folder Structure</h3>
-                <div class="code-block">quiz-app/
-├── client/                    # Frontend (React)
-│   ├── public/
-│   │   └── index.html
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Auth/
-│   │   │   │   ├── Login.jsx
-│   │   │   │   ├── Register.jsx
-│   │   │   │   └── ProtectedRoute.jsx
-│   │   │   ├── Admin/
-│   │   │   │   ├── AdminDashboard.jsx
-│   │   │   │   ├── QuestionList.jsx
-│   │   │   │   ├── AddQuestion.jsx
-│   │   │   │   └── EditQuestion.jsx
-│   │   │   ├── Student/
-│   │   │   │   ├── StudentDashboard.jsx
-│   │   │   │   ├── Quiz.jsx
-│   │   │   │   ├── QuestionCard.jsx
-│   │   │   │   ├── Results.jsx
-│   │   │   │   └── QuizHistory.jsx
-│   │   │   └── Common/
-│   │   │       ├── Navbar.jsx
-│   │   │       ├── Loading.jsx
-│   │   │       └── Notification.jsx
-│   │   ├── context/
-│   │   │   └── AuthContext.jsx
-│
+                <h3>Database Schema</h3>
+
+                <h4>1. Users Table</h4>
+                <div class="code-block">CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('admin', 'student') NOT NULL DEFAULT 'student',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);</div>
+
+                <h4>2. Questions Table</h4>
+                <div class="code-block">CREATE TABLE questions (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    question_text TEXT NOT NULL,
+    option_a VARCHAR(255) NOT NULL,
+    option_b VARCHAR(255) NOT NULL,
+    option_c VARCHAR(255) NOT NULL,
+    option_d VARCHAR(255) NOT NULL,
+    correct_answer ENUM('A', 'B', 'C', 'D') NOT NULL,
+    category VARCHAR(50) DEFAULT 'General',
+    created_by INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (created_by) REFERENCES users(id)
+);</div>
+
+                <h4>3. Quiz Attempts Table</h4>
+                <div class="code-block">CREATE TABLE quiz_attempts (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    score INT NOT NULL,
+    total_questions INT NOT NULL DEFAULT 10,
+    percentage DECIMAL(5, 2) NOT NULL,
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);</div>
+
+                <h4>4. Quiz Attempt Answers Table</h4>
+                <div class="code-block">CREATE TABLE quiz_attempt_answers (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    attempt_id INT NOT NULL,
+    question_id INT NOT NULL,
+    user_answer ENUM('A', 'B', 'C', 'D') NOT NULL,
+    is_correct BOOLEAN NOT NULL,
+    FOREIGN KEY (attempt_id) REFERENCES quiz_attempts(id),
+    FOREIGN KEY (question_id) REFERENCES questions(id)
+);</div>
+            </section>
+
+            <!-- API Section -->
+            <section id="api">
+                <h2>🔌 API Endpoints</h2>
+
+                <h3>Authentication Endpoints</h3>
+
+                <div class="endpoint-card">
+                    <h4><span class="method post">POST</span> /api/auth/register</h4>
+                    <p><strong>Description:</strong> Register new user</p>
+                    <div class="code-block">{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "password123",
+  "role": "student"
+}</div>
+                </div>
+
+                <div class="endpoint-card">
+                    <h4><span class="method post">POST</span> /api/auth/login</h4>
+                    <p><strong>Description:</strong> Login and get JWT token</p>
+                    <div class="code-block">{
+  "email": "john@example.com",
+  "password": "password123"
+}</div>
+                </div>
+
+                <h3>Question Endpoints <span class="role-badge role-admin">ADMIN</span></h3>
+
+                <div class="endpoint-card">
+                    <h4><span class="method post">POST</span> /api/questions</h4>
+                    <p><strong>Description:</strong> Create new question</p>
+                    <div class="code-block">{
+  "question_text": "What is 2+2?",
+  "option_a": "3",
+  "option_b": "4",
+  "option_c": "5",
+  "option_d": "6",
+  "correct_answer": "B",
+  "category": "Mathematics"
+}</div>
+                </div>
+
+                <div class="endpoint-card">
+                    <h4><span class="method get">GET</span> /api/questions</h4>
+                    <p><strong>Description:</strong> Get all questions (with pagination)</p>
+                </div>
+
+                <div class="endpoint-card">
+                    <h4><span class="method put">PUT</span> /api/questions/:id</h4>
+                    <p><strong>Description:</strong> Update question</p>
+                </div>
+
+                <div class="endpoint-card">
+                    <h4><span class="method delete">DELETE</span> /api/questions/:id</h4>
+                    <p><strong>Description:</strong> Delete question</p>
+                </div>
+
+                <h3>Quiz Endpoints <span class="role-badge role-student">STUDENT</span></h3>
+
+                <div class="endpoint-card">
+                    <h4><span class="method get">GET</span> /api/quiz/random</h4>
+                    <p><strong>Description:</strong> Get 10 random questions (without correct answers)</p>
+                </div>
+
+                <div class="endpoint-card">
+                    <h4><span class="method post">POST</span> /api/quiz/submit</h4>
+                    <p><strong>Description:</strong> Submit quiz and get score</p>
+                    <div class="code-block">{
+  "answers": [
+    { "question_id": 5, "answer": "C" },
+    { "question_id": 12, "answer": "B" },
+    // ... 10 total
+  ]
+}</div>
+                </div>
+
+                <div class="endpoint-card">
+                    <h4><span class="method get">GET</span> /api/quiz/history</h4>
+                    <p><strong>Description:</strong> Get user's quiz history</p>
+                </div>
+            </section>
+
+            <!-- Sprint Plan Section -->
+            <section id="sprints">
+                <h2>🏃 Sprint Plan (6 Hours per Sprint)</h2>
+
+                <div class="card" style="background: #fff3cd; border-left-color: #ffc107;">
+                    <h3>Sprint Structure</h3>
+                    <ul>
+                        <li><strong>Duration:</strong> 1 Week per Sprint</li>
+                        <li><strong>Work Time:</strong> 6 Hours focused work</li>
+                        <li><strong>Total Sprints:</strong> 8 Sprints (8 weeks)</li>
+                        <li><strong>Additional Work:</strong> Students work in free time</li>
+                    </ul>
+                </div>
+
+                <div class="sprint-card">
+                    <h3>Sprint 1: Project Setup (Week 1)</h3>
+                    <p><strong>Goal:</strong> Setup development environment and database</p>
+                    <ul>
+                        <li>Setup Node.js + Express backend</li>
+                        <li>Setup React frontend</li>
+                        <li>Create MySQL database with all 4 tables</li>
+                        <li>Configure environment variables</li>
+                    </ul>
+                </div>
+
+                <div class="sprint-card">
+                    <h3>Sprint 2: JWT Authentication (Week 2)</h3>
+                    <p><strong>Goal:</strong> Implement authentication system</p>
+                    <ul>
+                        <li>User registration with password hashing</li>
+                        <li>User login with JWT token generation</li>
+                        <li>Auth middleware for protected routes</li>
+                        <li>Role-based access control middleware</li>
+                    </ul>
+                </div>
+
+                <div class="sprint-card">
+                    <h3>Sprint 3: Question Management API (Week 3)</h3>
+                    <p><strong>Goal:</strong> CRUD APIs for questions</p>
+                    <ul>
+                        <li>Create question endpoint (Admin only)</li>
+                        <li>Get all questions with pagination</li>
+                        <li>Update question endpoint</li>
+                        <li>Delete question endpoint</li>
+                    </ul>
+                </div>
+
+                <div class="sprint-card">
+                    <h3>Sprint 4: Quiz API & Random Selection (Week 4)</h3>
+                    <p><strong>Goal:</strong> Quiz generation and submission</p>
+                    <ul>
+                        <li>Random 10 question selection algorithm</li>
+                        <li>Quiz submission with scoring</li>
+                        <li>Quiz history tracking</li>
+                        <li>Attempt details endpoint</li>
+                    </ul>
+                </div>
+
+                <div class="sprint-card">
+                    <h3>Sprint 5: Frontend Authentication (Week 5)</h3>
+                    <p><strong>Goal:</strong> Build login/register UI</p>
+                    <ul>
+                        <li>Login component with form validation</li>
+                        <li>Register component with role selection</li>
+                        <li>AuthContext for state management</li>
+                        <li>Protected routes setup</li>
+                    </ul>
+                </div>
+
+                <div class="sprint-card">
+                    <h3>Sprint 6: Admin Dashboard (Week 6)</h3>
+                    <p><strong>Goal:</strong> Admin question management UI</p>
+                    <ul>
+                        <li>Admin dashboard with statistics</li>
+                        <li>Question list with table</li>
+                        <li>Add/Edit question forms</li>
+                        <li>Delete confirmation modal</li>
+                    </ul>
+                </div>
+
+                <div class="sprint-card">
+                    <h3>Sprint 7: Student Quiz Interface (Week 7)</h3>
+                    <p><strong>Goal:</strong> Build quiz taking UI</p>
+                    <ul>
+                        <li>Student dashboard with statistics</li>
+                        <li>Quiz interface with navigation</li>
+                        <li>Results page with score breakdown</li>
+                        <li>Quiz history component</li>
+                    </ul>
+                </div>
+
+                <div class="sprint-card">
+                    <h3>Sprint 8: Testing & Polish (Week 8)</h3>
+                    <p><strong>Goal:</strong> Final testing and deployment</p>
+                    <ul>
+                        <li>End-to-end testing all flows</li>
+                        <li>Bug fixes and improvements</li>
+                        <li>UI/UX polish</li>
+                        <li>Deployment preparation</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #d4edda; border-left-color: #28a745;">
+                    <h3>🎯 MVP Success Criteria</h3>
+                    <ol>
+                        <li>✅ Users can register as Admin or Student</li>
+                        <li>✅ JWT authentication working</li>
+                        <li>✅ Admin can manage questions (CRUD)</li>
+                        <li>✅ Students can take quizzes (10 random questions)</li>
+                        <li>✅ Instant scoring and results display</li>
+                        <li>✅ Quiz history tracking works</li>
+                        <li>✅ Role-based access control enforced</li>
+                        <li>✅ Application is responsive and user-friendly</li>
+                        <li>✅ No critical bugs</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Testing Section -->
+            <section id="testing">
+                <h2>🧪 Testing Strategy</h2>
+
+                <h3>Test Cases</h3>
+
+                <h4>Authentication Tests</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Test ID</th>
+                            <th>Test Case</th>
+                            <th>Expected Result</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>TC-A01</td>
+                            <td>Register with valid details</td>
+                            <td>User created, JWT token returned</td>
+                            <td><span class="danger">High</span></td>
+                        </tr>
+                        <tr>
+                            <td>TC-A02</td>
+                            <td>Login with valid credentials</td>
+                            <td>JWT token returned, redirect to dashboard</td>
+                            <td><span class="danger">High</span></td>
+                        </tr>
+                        <tr>
+                            <td>TC-A03</td>
+                            <td>Access protected route without token</td>
+                            <td>Redirect to login</td>
+                            <td><span class="danger">High</span></td>
+                        </tr>
+                        <tr>
+                            <td>TC-A04</td>
+                            <td>Student tries to access admin route</td>
+                            <td>Error: Unauthorized</td>
+                            <td><span class="danger">High</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Admin Question Tests</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Test ID</th>
+                            <th>Test Case</th>
+                            <th>Expected Result</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>TC-Q01</td>
+                            <td>Create question with all valid fields</td>
+                            <td>Question created successfully</td>
+                            <td><span class="danger">High</span></td>
+                        </tr>
+                        <tr>
+                            <td>TC-Q02</td>
+                            <td>Edit existing question</td>
+                            <td>Question updated successfully</td>
+                            <td><span class="danger">High</span></td>
+                        </tr>
+                        <tr>
+                            <td>TC-Q03</td>
+                            <td>Delete question with confirmation</td>
+                            <td>Question removed from database</td>
+                            <td><span class="danger">High</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Student Quiz Tests</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Test ID</th>
+                            <th>Test Case</th>
+                            <th>Expected Result</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>TC-Z01</td>
+                            <td>Start quiz with enough questions</td>
+                            <td>10 random questions loaded</td>
+                            <td><span class="danger">High</span></td>
+                        </tr>
+                        <tr>
+                            <td>TC-Z02</td>
+                            <td>Navigate between questions</td>
+                            <td>Previous/Next work correctly</td>
+                            <td><span class="danger">High</span></td>
+                        </tr>
+                        <tr>
+                            <td>TC-Z03</td>
+                            <td>Submit quiz with all answers</td>
+                            <td>Score calculated correctly</td>
+                            <td><span class="danger">High</span></td>
+                        </tr>
+                        <tr>
+                            <td>TC-Z04</td>
+                            <td>View quiz history</td>
+                            <td>All past attempts displayed</td>
+                            <td><span class="warning">Medium</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Security Testing</h3>
+                <div class="card">
+                    <ul>
+                        <li>☐ Passwords hashed with bcrypt</li>
+                        <li>☐ JWT tokens expire correctly</li>
+                        <li>☐ Protected routes require valid token</li>
+                        <li>☐ Role-based access enforced</li>
+                        <li>☐ SQL injection prevented</li>
+                        <li>☐ XSS attacks prevented</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section id="features">
+                <h2>✨ Detailed Features</h2>
+
+                <h3>Admin Dashboard</h3>
+                <div class="card">
+                    <h4>Question Management</h4>
+                    <ul>
+                        <li><strong>Add Question:</strong> Form with all 4 options and correct answer selection</li>
+                        <li><strong>Edit Question:</strong> Pre-populated form for updating</li>
+                        <li><strong>Delete Question:</strong> Confirmation modal before deletion</li>
+                        <li><strong>View Questions:</strong> Table with pagination, search, and filters</li>
+                        <li><strong>Statistics:</strong> Total questions count, by category breakdown</li>
+                    </ul>
+                </div>
+
+                <h3>Student Dashboard</h3>
+                <div class="card">
+                    <h4>Quiz Features</h4>
+                    <ul>
+                        <li><strong>Start Quiz:</strong> Button to begin new quiz attempt</li>
+                        <li><strong>Quiz Interface:</strong> One question at a time with 4 radio button options</li>
+                        <li><strong>Navigation:</strong> Previous/Next buttons, question counter (3/10)</li>
+                        <li><strong>Submit:</strong> Final submission button on last question</li>
+                        <li><strong>Results:</strong> Immediate score display with breakdown</li>
+                        <li><strong>Review:</strong> View all questions with correct/incorrect indicators</li>
+                        <li><strong>History:</strong> Table of all past attempts with scores</li>
+                        <li><strong>Statistics:</strong> Average score, best score, total attempts</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Wireframes Section -->
+            <section id="wireframes">
+                <h2>🎨 UI Design Specifications</h2>
+
+                <h3>Screen Layouts</h3>
+
+                <div class="card">
+                    <h4>1. Login/Register Pages</h4>
+                    <p><strong>Login Form:</strong></p>
+                    <ul>
+                        <li>Email input field</li>
+                        <li>Password input field (with show/hide toggle)</li>
+                        <li>"Login" button (primary blue)</li>
+                        <li>Link to register page</li>
+                    </ul>
+                    <p><strong>Register Form:</strong></p>
+                    <ul>
+                        <li>Full name input</li>
+                        <li>Email input</li>
+                        <li>Password input</li>
+                        <li>Confirm password input</li>
+                        <li>Role selection: Admin/Student (radio buttons)</li>
+                        <li>"Register" button</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>2. Admin Dashboard</h4>
+                    <p><strong>Layout:</strong> Sidebar navigation + main content</p>
+                    <ul>
+                        <li><strong>Header:</strong> App title, admin name, logout button</li>
+                        <li><strong>Sidebar:</strong> Dashboard, Questions, Add Question links</li>
+                        <li><strong>Statistics Cards:</strong> Total Questions, By Category</li>
+                        <li><strong>Question Table:</strong> ID, Question, Category, Actions</li>
+                        <li><strong>Pagination:</strong> Page numbers, Previous/Next buttons</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>3. Add/Edit Question Form</h4>
+                    <ul>
+                        <li>Question Text* (textarea, 200 chars max)</li>
+                        <li>Option A* (text input)</li>
+                        <li>Option B* (text input)</li>
+                        <li>Option C* (text input)</li>
+                        <li>Option D* (text input)</li>
+                        <li>Correct Answer* (dropdown: A, B, C, D)</li>
+                        <li>Category (optional text input)</li>
+                        <li>"Save Question" button (primary)</li>
+                        <li>"Cancel" button (secondary)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>4. Student Dashboard</h4>
+                    <ul>
+                        <li><strong>Welcome Message:</strong> "Hello, [Student Name]"</li>
+                        <li><strong>Statistics Cards:</strong>
+                            <ul>
+                                <li>Total Quizzes Taken</li>
+                                <li>Average Score</li>
+                                <li>Best Score</li>
+                            </ul>
+                        </li>
+                        <li><strong>Main Action:</strong> Large "Start New Quiz" button</li>
+                        <li><strong>Recent History:</strong> Last 5 attempts table</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>5. Quiz Interface</h4>
+                    <p><strong>Layout:</strong> Full-screen focus mode</p>
+                    <ul>
+                        <li><strong>Top Bar:</strong> Question counter "Question 3 of 10"</li>
+                        <li><strong>Progress Bar:</strong> Visual progress indicator</li>
+                        <li><strong>Question Card:</strong> Large readable question text</li>
+                        <li><strong>Options:</strong> 4 radio buttons with option text</li>
+                        <li><strong>Navigation:</strong>
+                            <ul>
+                                <li>"Previous" button (disabled on Q1)</li>
+                                <li>"Next" button</li>
+                                <li>"Submit Quiz" button (on Q10)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>6. Quiz Results Page</h4>
+                    <ul>
+                        <li><strong>Score Display:</strong> Large "8/10" with percentage</li>
+                        <li><strong>Status Badge:</strong> "Passed" (green) or "Failed" (red)</li>
+                        <li><strong>Statistics:</strong> Correct: 8, Incorrect: 2</li>
+                        <li><strong>Detailed Review:</strong> All questions with answers</li>
+                        <li><strong>Indicators:</strong> ✓ for correct, ✗ for incorrect</li>
+                        <li><strong>Actions:</strong>
+                            <ul>
+                                <li>"Take Another Quiz" button</li>
+                                <li>"Back to Dashboard" button</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>7. Quiz History Page</h4>
+                    <p><strong>Table Columns:</strong></p>
+                    <ul>
+                        <li>Attempt #</li>
+                        <li>Date & Time</li>
+                        <li>Score (X/10)</li>
+                        <li>Percentage (%)</li>
+                        <li>Status (Passed/Failed)</li>
+                        <li>Actions (View Details)</li>
+                    </ul>
+                </div>
+
+                <h3>Design System</h3>
+                <div class="card">
+                    <h4>Color Palette</h4>
+                    <ul>
+                        <li><strong>Primary:</strong> #667eea (Blue-purple)</li>
+                        <li><strong>Secondary:</strong> #764ba2 (Purple)</li>
+                        <li><strong>Success:</strong> #10B981 (Green)</li>
+                        <li><strong>Error:</strong> #EF4444 (Red)</li>
+                        <li><strong>Background:</strong> #F9FAFB</li>
+                        <li><strong>Text:</strong> #1F2937</li>
+                    </ul>
+
+                    <h4>Typography</h4>
+                    <ul>
+                        <li><strong>Font:</strong> Inter, Segoe UI, sans-serif</li>
+                        <li><strong>Headings:</strong> 24-32px, Bold</li>
+                        <li><strong>Body:</strong> 16px, Regular</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- User Stories Section -->
+            <section id="user-stories">
+                <h2>📖 User Stories</h2>
+
+                <h3>Admin Stories</h3>
+                <div class="card">
+                    <ol>
+                        <li>As an admin, I want to <strong>register and login</strong> so that I can manage questions</li>
+                        <li>As an admin, I want to <strong>add new questions</strong> with 4 options so students have more content</li>
+                        <li>As an admin, I want to <strong>mark the correct answer</strong> when creating a question for automatic scoring</li>
+                        <li>As an admin, I want to <strong>view all questions</strong> in a table to manage the question bank</li>
+                        <li>As an admin, I want to <strong>edit questions</strong> to fix mistakes or update content</li>
+                        <li>As an admin, I want to <strong>delete questions</strong> with confirmation to remove outdated content</li>
+                        <li>As an admin, I want to <strong>search and filter questions</strong> to find specific questions quickly</li>
+                    </ol>
+                </div>
+
+                <h3>Student Stories</h3>
+                <div class="card">
+                    <ol>
+                        <li>As a student, I want to <strong>register and login</strong> so that I can take quizzes</li>
+                        <li>As a student, I want to <strong>see my dashboard</strong> with statistics to track my progress</li>
+                        <li>As a student, I want to <strong>start a quiz</strong> with 10 random questions to test my knowledge</li>
+                        <li>As a student, I want to <strong>see one question at a time</strong> so I can focus without distraction</li>
+                        <li>As a student, I want to <strong>navigate between questions</strong> to review my answers</li>
+                        <li>As a student, I want to <strong>see a question counter</strong> to know my progress (e.g., "3/10")</li>
+                        <li>As a student, I want to <strong>submit my quiz</strong> to get my score</li>
+                        <li>As a student, I want to <strong>see my score immediately</strong> for instant feedback</li>
+                        <li>As a student, I want to <strong>see which questions I got right/wrong</strong> to learn from mistakes</li>
+                        <li>As a student, I want to <strong>view my quiz history</strong> to track improvement over time</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Future Enhancements Section -->
+            <section id="future">
+                <h2>🔮 Future Enhancements</h2>
+
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <h4>⏱️ Timed Quizzes</h4>
+                        <p>Add countdown timer with automatic submission when time expires.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>📊 Advanced Analytics</h4>
+                        <p>Detailed performance charts and trends for students.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>🏆 Leaderboard</h4>
+                        <p>Global leaderboard to gamify learning and motivate students.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>📁 Categories</h4>
+                        <p>Organize questions by subject for targeted practice.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>💾 Bulk Import</h4>
+                        <p>Import questions from CSV or Excel files.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>📤 Export Results</h4>
+                        <p>Export quiz results to PDF or CSV.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>🎚️ Difficulty Levels</h4>
+                        <p>Generate quizzes by difficulty (easy, medium, hard).</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>💬 Explanations</h4>
+                        <p>Add explanations for correct answers.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>📧 Email Notifications</h4>
+                        <p>Email quiz results and reminders.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>🌙 Dark Mode</h4>
+                        <p>Theme toggle for better experience.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>📱 Mobile App</h4>
+                        <p>React Native mobile application.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>🖼️ Image Support</h4>
+                        <p>Add images to questions and options.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Deployment Section -->
+            <section id="deployment">
+                <h2>🚀 Deployment Guide</h2>
+
+                <h3>Environment Variables</h3>
+                <div class="card">
+                    <h4>Backend (.env)</h4>
+                    <div class="code-block">PORT=5000
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_password
+DB_NAME=quiz_app
+JWT_SECRET=your_super_secret_key
+JWT_EXPIRE=24h
+NODE_ENV=development</div>
+
+                    <h4>Frontend (.env)</h4>
+                    <div class="code-block">REACT_APP_API_URL=http://localhost:5000/api</div>
+                </div>
+
+                <h3>Deployment Steps</h3>
+                <div class="card">
+                    <ol>
+                        <li><strong>Database:</strong> Deploy MySQL on PlanetScale or AWS RDS</li>
+                        <li><strong>Backend:</strong> Deploy Node.js on Heroku or Railway</li>
+                        <li><strong>Frontend:</strong> Deploy React on Vercel or Netlify</li>
+                    </ol>
+                </div>
+            </section>
+
+        </div>
+
+        <div class="footer">
+            <h3>📄 Document Information</h3>
+            <p><strong>Version:</strong> 1.0</p>
+            <p><strong>Last Updated:</strong> November 2024</p>
+            <p><strong>Status:</strong> Approved for Development</p>
+            <p><strong>Project Duration:</strong> 8 Weeks (8 Sprints)</p>
+            <p><strong>Tech Stack:</strong> React, Node.js, Express, MySQL, JWT, bcrypt</p>
+            <br>
+            <p style="font-size: 0.9em; color: #666;">
+                This PRD serves as the single source of truth for the Quiz Application project.<br>
+                All team members should refer to this document throughout development.
+            </p>
+            <br>
+            <p><strong>Key Highlights:</strong></p>
+            <ul style="list-style: none; padding: 0;">
+                <li>✅ Role-based system: Admin manages questions, Students take quizzes</li>
+                <li>✅ JWT authentication for secure access</li>
+                <li>✅ Random quiz generation (10 questions per attempt)</li>
+                <li>✅ Instant scoring and feedback</li>
+                <li>✅ Comprehensive quiz history tracking</li>
+                <li>✅ 8-week sprint plan with 6 hours per sprint</li>
+            </ul>
+            <br>
+            <p style="font-size: 0.85em; color: #999;">
+                © 2024 Quiz App Team | Built with ❤️ by Students
+            </p>
+        </div>
+    </div>
+</body>
+</html>
